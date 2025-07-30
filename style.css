@@ -1,1 +1,150 @@
+/* modern-auctions.css */
 
+/* Root variables */
+:root {
+  --primary-color: #1e3a8a;
+  --accent-color: #2563eb;
+  --bg-color: #f9fafb;
+  --card-bg: #ffffff;
+  --text-color: #111827;
+  --subtext-color: #6b7280;
+  --border-radius: 8px;
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Base reset and font */
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Auction header */
+.catalog-header {
+  background: var(--primary-color);
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  border-radius: var(--border-radius);
+  margin: 1rem;
+}
+
+.catalog-header h1 {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+/* Card layout for lots */
+.lot-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
+}
+
+.lot-card:hover {
+  transform: translateY(-4px);
+}
+
+.lot-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  margin-bottom: 0.75rem;
+  object-fit: cover;
+}
+
+/* Lot details */
+.lot-details {
+  flex-grow: 1;
+}
+
+.lot-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.lot-bids {
+  color: var(--subtext-color);
+  margin-bottom: 0.5rem;
+}
+
+.lot-price {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+/* Grid layout */
+.lot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px,1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* Responsive media queries */
+@media (max-width: 600px) {
+  .catalog-header h1 {
+    font-size: 1.5rem;
+  }
+  .lot-price {
+    font-size: 1.25rem;
+  }
+}
+
+/* Buttons */
+.button {
+  display: inline-block;
+  background: var(--accent-color);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  margin-top: 0.5rem;
+  transition: background 0.2s;
+}
+
+.button:hover {
+  background: #1d4ed8;
+}
+
+/* Auction metadata strip */
+.auction-info {
+  background: #ffffffcc;
+  color: var(--text-color);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  text-align: center;
+  margin: 0 1rem 1rem;
+  font-size: 0.9rem;
+}
+
+/* Utilities */
+.text-center {
+  text-align: center;
+}
+
+.mt-1 { margin-top: 1rem; }
+.mb-1 { margin-bottom: 1rem; }
