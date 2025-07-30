@@ -1,150 +1,87 @@
-/* modern-auctions.css */
-
-/* Root variables */
 :root {
-  --primary-color: #1e3a8a;
-  --accent-color: #2563eb;
-  --bg-color: #f9fafb;
+  --primary-color: #0047ab;
+  --accent-color: #007fff;
+  --bg-color: #f4f6f8;
   --card-bg: #ffffff;
-  --text-color: #111827;
-  --subtext-color: #6b7280;
-  --border-radius: 8px;
-  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --text-color: #222;
+  --muted-text: #666;
+  --font-base: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --radius: 6px;
 }
 
-/* Base reset and font */
 body {
+  font-family: var(--font-base);
+  background-color: var(--bg-color);
+  color: var(--text-color);
   margin: 0;
   padding: 0;
-  background: var(--bg-color);
-  color: var(--text-color);
-  font-family: var(--font-sans);
-  line-height: 1.6;
 }
 
-a {
-  color: var(--accent-color);
-  text-decoration: none;
+/* Catalog Container */
+#auction_catalog_container {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: auto;
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
-/* Auction header */
-.catalog-header {
-  background: var(--primary-color);
-  color: #fff;
-  padding: 1rem;
-  text-align: center;
-  border-radius: var(--border-radius);
-  margin: 1rem;
-}
-
-.catalog-header h1 {
-  margin: 0;
-  font-size: 1.75rem;
-}
-
-/* Card layout for lots */
-.lot-card {
+/* Each Auction Lot */
+.auction_lots {
   background: var(--card-bg);
-  border-radius: var(--border-radius);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  margin: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: var(--radius);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
   padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.2s;
+}
+.auction_lots:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.lot-card:hover {
-  transform: translateY(-4px);
-}
-
-.lot-image {
+/* Lot Image */
+.auction_lots img {
   width: 100%;
   height: auto;
-  border-radius: var(--border-radius);
-  margin-bottom: 0.75rem;
+  border-radius: var(--radius);
   object-fit: cover;
 }
 
-/* Lot details */
-.lot-details {
-  flex-grow: 1;
-}
-
-.lot-title {
+/* Title */
+.auction_lots_title {
   font-size: 1.25rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin: 0.75rem 0;
+  color: var(--primary-color);
 }
 
-.lot-bids {
-  color: var(--subtext-color);
-  margin-bottom: 0.5rem;
-}
-
-.lot-price {
-  font-size: 1.5rem;
-  color: var(--accent-color);
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-/* Grid layout */
-.lot-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px,1fr));
-  gap: 1rem;
-  padding: 1rem;
-}
-
-/* Responsive media queries */
-@media (max-width: 600px) {
-  .catalog-header h1 {
-    font-size: 1.5rem;
-  }
-  .lot-price {
-    font-size: 1.25rem;
-  }
-}
-
-/* Buttons */
-.button {
-  display: inline-block;
-  background: var(--accent-color);
-  color: #fff;
-  padding: 0.5rem 1rem;
-  border-radius: var(--border-radius);
-  font-weight: 600;
-  text-align: center;
-  cursor: pointer;
-  border: none;
-  margin-top: 0.5rem;
-  transition: background 0.2s;
-}
-
-.button:hover {
-  background: #1d4ed8;
-}
-
-/* Auction metadata strip */
-.auction-info {
-  background: #ffffffcc;
-  color: var(--text-color);
-  padding: 0.5rem 1rem;
-  border-radius: var(--border-radius);
-  text-align: center;
-  margin: 0 1rem 1rem;
+/* Bids Info */
+.auction_lots_bids {
   font-size: 0.9rem;
+  color: var(--muted-text);
+  margin-bottom: 0.25rem;
 }
 
-/* Utilities */
-.text-center {
+/* Price */
+.auction_lots_price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+/* Grid Layout */
+#auction_catalog_container > div {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Responsive Header */
+.catalog-title {
   text-align: center;
+  color: var(--primary-color);
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
 }
-
-.mt-1 { margin-top: 1rem; }
-.mb-1 { margin-bottom: 1rem; }
