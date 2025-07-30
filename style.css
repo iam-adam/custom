@@ -1,3 +1,10 @@
+.header_iframe {
+	display: none;
+}
+
+.auc-top-menu {
+	display: none;
+}
 :root {
   --primary-color: #0047ab;
   --accent-color: #007fff;
@@ -8,9 +15,7 @@
   --border-radius: 8px;
   --font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
 }
-.header_iframe {
-	display: none;
-}
+
 
 body {
   background: var(--bg-color);
