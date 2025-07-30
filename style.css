@@ -1,99 +1,95 @@
-.header_iframe {
-	display: none;
-}
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 
-.auc-top-menu {
-	display: none;
-}
 :root {
-  --primary-color: #0047ab;
-  --accent-color: #007fff;
-  --bg-color: #f4f6f8;
-  --card-bg: #fff;
-  --text-color: #1a1a1a;
-  --muted-color: #666;
-  --border-radius: 8px;
-  --font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  --primary: #00457c;
+  --accent: #0088cc;
+  --bg: #f2f4f7;
+  --card-bg: #ffffff;
+  --text: #1c1c1c;
+  --muted: #6e6e6e;
+  --radius: 6px;
+  --font: 'Open Sans', sans-serif;
 }
-
 
 body {
-  background: var(--bg-color);
-  font-family: var(--font-family);
-  color: var(--text-color);
+  background: var(--bg);
+  font-family: var(--font);
+  color: var(--text);
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
-/* Container holding all lots */
+/* Main grid */
 #auction_lots {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
   gap: 1.5rem;
   padding: 2rem;
   max-width: 1400px;
   margin: auto;
 }
 
-/* Individual lot */
-div.auction_lots {
+/* Lot card styling */
+.auction_lots {
   background: var(--card-bg);
-  border: 1px solid #e1e1e1;
-  border-radius: var(--border-radius);
+  border: 1px solid #dcdcdc;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.06);
-  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s ease;
 }
-div.auction_lots:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+.auction_lots:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
-/* Lot image */
-div.auction_lots div.image > a > img {
+/* Image styling */
+.auction_lots .image img {
   width: 100%;
   height: auto;
   object-fit: cover;
-  border-top-left-radius: var(--border-radius);
-  border-top-right-radius: var(--border-radius);
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
 }
 
-/* Lot title */
-div.auction_lots div.title {
+/* Title block */
+.auction_lots .title {
   font-size: 1.1rem;
   font-weight: 600;
-  color: var(--primary-color);
+  color: var(--primary);
   padding: 0.75rem 1rem 0.25rem;
-  min-height: 3rem;
+  min-height: 56px;
 }
 
-/* Price info */
-div.auction_lots span.amount {
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: var(--accent-color);
-  display: block;
+/* Price block */
+.auction_lots span.amount {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--accent);
   padding: 0 1rem;
-  margin-bottom: 0.5rem;
+  display: block;
+  margin-bottom: 0.25rem;
 }
 
 /* Bidding info */
-div.auction_lots div.bidding {
+.auction_lots .bidding {
   font-size: 0.85rem;
-  color: var(--muted-color);
-  padding: 0 1rem 0.75rem;
+  color: var(--muted);
+  padding: 0 1rem 1rem;
 }
 
-/* Responsive tweaks */
-@media (max-width: 600px) {
+/* Responsive adjustments */
+@media (max-width: 640px) {
   #auction_lots {
     grid-template-columns: 1fr;
     padding: 1rem;
   }
-
-  div.auction_lots div.title {
+  .auction_lots .title {
     font-size: 1rem;
   }
-
-  div.auction_lots span.amount {
+  .auction_lots span.amount {
     font-size: 1.2rem;
   }
 }
